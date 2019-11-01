@@ -1,0 +1,125 @@
+********************************************
+Mike O's Java SQL Server Database Project:
+********************************************
+
+********************************************
+Introduction:
+********************************************
+
+Attached is a ZIP containing:
+* sqljdbc42.jar
+* SQLServerBasics01.java
+* SQLServerGUI.java
+
+
+The Java code looks like a lot of code.
+Don't panic - it's not as bad as it looks.  :)
+Lots of comments in the code to explain what is going on.
+Also, getStringValueFromSQLDatabase () and getNumberOfRowsInResultSet ()
+are quite similar (connect to DB, run query, get results, etc).
+
+Notes:
+* If you use this code as is (with TextPad):
+Requires: Java 8 (v1.8) or prior (v1.7, v1.6, ....)
+          Will NOT work with Java 9 (v1.9) or later.
+          I need to fix the loadJARFileLibrary () method to work with Java 9, 10, ...
+
+* If you use Netbeans, then use the "Add Library" to add the
+SQL Server JAR as a library to your project.
+No need for the loadJARFileLibrary () file then.  :)
+No other changes are needed - the other methods will all work fine.
+And if you use Netbeans, you should be fine with any version of Java
+.... 6, 7, 8, 9, 10, ....
+
+
+
+********************************************
+SQLServerBasics01.java
+Sample Run (using my test database)
+********************************************
+
+Counting Patients in 'CPatient' table ...
+-> Number of Patients: 8
+
+Reading Patient data ...
+ -> 8 records read from database.
+
+ID      PatientName     Suburb
+1       Ginger Hamster  Rockhampton
+2       Winston Beagle  Kinka Beach
+3       Flappy Finch    Gracemere
+4       Beefy Walrus    Yeppoon
+5       Imnota Galah    Rockhampton
+6       Frankie Pankie  Yeppoon
+7       Hankel Biter    Yeppoon
+8       Honey Bear      Emu Park
+
+
+********************************************
+SQLServerBasics01.java
+Walking through the code:
+********************************************
+
+(1). The database connection strings are contained at the top of the class.
+I've included example strings for:
+* localhost (SQL Server is running on the same machine as the Java App)
+* a web server connection (commented out).
+
+(2). loadJARFileLibrary () is my method to load the SQL Server driver class (JAR) file.
+Requires: Java 8 (v1.8) or prior (v1.7, v1.6, ....)
+          Will NOT work with Java 9 (v1.9) or later.
+          I need to fix the loadJARFileLibrary () method to work with Java 9, 10, ...
+
+(3). getStringValueFromSQLDatabase ()
+A method to connect to the database, retrieve a single value, and return this as a String.
+
+(4). getNumberOfRowsInResultSet ()
+A worker method that is used by getObjectArray2DFromSQLDatabase ().
+
+(5). getObjectArray2DFromSQLDatabase ()
+A method to connect to the database, retrieve a 2D Array of data with it's data types
+intact: int, double, String, Date, etc, and return this as an 2D Object array.
+Returned as an Object array rather than a String array, because the data types
+for each column (int, double, String, Date, etc) are intact.
+Row 0 is the column headings (Strings).
+
+(6). Main method
+invokes the above methods to demonstrate things.
+
+
+********************************************
+SQLServerGUI.java
+********************************************
+A simply GUI app that has a text area and 2 buttons.
+
+It uses the methods of SQLServerBasics01 class.
+
+Click the buttons to run queries and display the
+results (crudely) in the text area.
+
+This also shows how you can re-use functionality / classes.
+
+
+
+********************************************
+Recommendations for Teachers:
+********************************************
+
+Give students the entire class, but with no code for these methods:
+* getStringValueFromSQLDatabase ()
+* getNumberOfRowsInResultSet ()
+* getObjectArray2DFromSQLDatabase ()
+
+and develop the getStringValueFromSQLDatabase () method with students first.
+
+And then when everyone has this working, develop these with students:
+* getNumberOfRowsInResultSet ()
+* getObjectArray2DFromSQLDatabase ()
+
+Don't forget to tailor the database connection strings and queries to suit
+your database / needs.  :)
+
+Adding a GUI is also quite easy.
+eg. A button to run the query and send the results to a TextArea.
+
+.
