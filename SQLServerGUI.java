@@ -1,3 +1,10 @@
+/*
+
+REF:
+* "SQLServer - with Connect, Query, and basic GUI app - Mike O's notes for students.txt"
+
+*/
+
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
@@ -28,7 +35,7 @@ public class SQLServerGUI extends JFrame
 
    private void query1()
    {
-      // Get a single value from the database:
+      // Get a single value from the database and display in textarea.
       String resultStr = SQLServerBasics01.getStringValueFromSQLDatabase ("SELECT COUNT(*) FROM CPatient");
       System.out.println ("-> Number of Patients: " + resultStr);
 
@@ -37,7 +44,7 @@ public class SQLServerGUI extends JFrame
 
    private void query2()
    {
-      // Display all patients from the database:
+      // Display all patients from the database and display in textarea.
 
       textArea.setText ("");
 

@@ -97,44 +97,9 @@ public class SQLServerBasics01
       int    numRows = 0;
       String dataStr = "";
 
-      try
-      {
-         // Connect to database:
-         Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
-
-         // Execute query:
-         Statement statement   = connection.createStatement();
-         ResultSet resultSet   = statement.executeQuery(selectQueryStr);
-
-         // Get ResultSet's meta data:
-         ResultSetMetaData metaData = resultSet.getMetaData();
-         int numberOfColumns        = metaData.getColumnCount();
-
-         // Get the query results:
-         while (resultSet.next())
-         {
-            numRows++;
-
-            dataStr = String.format ("%s", resultSet.getObject(1));
-         }
-
-         // We were only expecting a single piece of data,
-         // so make sure that is what we got:
-         if ((numberOfColumns != 1) || (numRows != 1))
-         {
-            dataStr = "Error: expecting 1 piece of data: result contained " +
-                      numberOfColumns + " columns and " + numRows + " rows.";
-         }
-
-         // Disconnect from database.
-         statement.close();
-         connection.close();
-      }
-      catch (Exception err) //(SQLException sqlException)
-      {
-         //err.printStackTrace();
-         dataStr = "ERROR: " + err.toString();
-      }
+      // TODO
+      // TODO
+      // TODO
 
       return dataStr; // A single piece of data.
    }
@@ -147,16 +112,9 @@ public class SQLServerBasics01
    {
       int numberOfRows = 0;
 
-      try
-      {
-         resultSet.last();                  // Move to the last row.
-         numberOfRows = resultSet.getRow(); // Get the row number of last row.
-         resultSet.beforeFirst();           // Move back to start of data.
-      }
-      catch(Exception ex)
-      {
-         numberOfRows = 0;
-      }
+      // TODO
+      // TODO
+      // TODO
 
       return numberOfRows; // Rows of data - excludes column headings !
    }
@@ -169,70 +127,9 @@ public class SQLServerBasics01
       Object[][] objectArray2D = null;
       int numberOfRows = 0;
 
-      try
-      {
-         // Connect to database:
-         Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
-
-         // Execute query:
-         Statement statement   = connection.createStatement (ResultSet.TYPE_SCROLL_INSENSITIVE,
-                                                             ResultSet.CONCUR_READ_ONLY);
-         ResultSet resultSet   = statement.executeQuery(selectQueryStr);
-
-         // Get the number of rows of data (excluding column headings).
-         numberOfRows = getNumberOfRowsInResultSet (resultSet);
-
-         numberOfRows++; // Make room for column headings.
-
-         if (numberOfRows == 0)
-            return null; // ERROR - no rows - not even headings !!!
-
-         // Get ResultSet's meta data:
-         ResultSetMetaData metaData = resultSet.getMetaData();
-         int numberOfColumns        = metaData.getColumnCount();
-
-         if (numberOfColumns == 0)
-            return null; // ERROR - no columns !!!
-
-         // Declare our array to be big enough to hold all of the
-         // data and the column headings.
-         objectArray2D = new Object [numberOfRows][numberOfColumns];
-
-         // Get the column headings into Row 0 of the array.
-         int row = 0;
-         for (int i = 1; i <= numberOfColumns; i++)
-         {
-            // Column headings are Strings !
-            objectArray2D [row][i-1] = new String (String.format ("%s", metaData.getColumnName(i)).trim());
-         }
-
-         // Get the query results into the array.
-         row++; // Headings are in Row 0, load data from Row 1 onwards.
-         while (resultSet.next())
-         {
-            for (int i = 1; i <= numberOfColumns; i++)
-            {
-               objectArray2D [row][i-1] = resultSet.getObject(i);
-            }
-            row++;
-         }
-
-         // Disconnect from database.
-         statement.close();
-         connection.close();
-      }
-      catch (Exception err) //(SQLException sqlException)
-      {
-         //err.printStackTrace();
-         System.out.println ("ERROR: " + err.toString());
-      }
-      //}
-
-      // -1 to remove headings.
-      if (numberOfRows > 0)
-         numberOfRows--;
-
-      System.out.println (" -> " + numberOfRows + " records read from database.");
+      // TODO
+      // TODO
+      // TODO
 
       return objectArray2D;
    }
@@ -265,7 +162,6 @@ public class SQLServerBasics01
             System.out.println ();
          }
       }
-
 
       //int[][] ints = { {1, 2, 3}, {4, 5}  }
    }
