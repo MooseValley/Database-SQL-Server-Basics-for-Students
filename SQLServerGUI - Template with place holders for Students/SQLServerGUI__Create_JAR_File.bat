@@ -1,6 +1,6 @@
-REM-----------------------------
+REM -----------------------------
 REM SQLServerGUI
-REM-----------------------------
+REM -----------------------------
 echo off
 cls
 REM
@@ -11,7 +11,7 @@ REM echo %CLASS_PATH%
 SET "dirlocation=%JAVA_HOME%\bin\"
 
 echo "%dirlocation%"
-del *.class
+del /q *.class
 echo Create the Manifest file:
 echo Main-Class: SQLServerGUI >MANIFEST.MF
 echo .
@@ -21,7 +21,7 @@ echo .
 "%dirlocation%jar.exe" cfm SQLServerGUI.jar MANIFEST.MF *.class ..\icons\*.gif ..\icons\*.png  SQLServerGUI*.txt
 
 REM
-del *.class
+del /q *.class
 
 :END
 echo .
