@@ -23,9 +23,11 @@ import javax.swing.JOptionPane;     // For Swing Dialogs
 
 
 public class SQLServerBasics01
-{
+{                                                   //"jdbc:sqlserver://SQL42.mydomain.private;databaseName=CC_Extras;"
    //private static final String DATABASE_URL       = "jdbc:sqlserver://MooseServer.azure.com;databaseName=DB_Patients";
-   private static final String DATABASE_URL       = "jdbc:sqlserver://localhost;databaseName=DB_Patients";
+   //private static final String DATABASE_URL       = "jdbc:sqlserver://localhost;databaseName=DB_Patients";
+   private static final String DATABASE_URL       = "jdbc:sqlserver://CCQL043;databaseName=CC_Extras";
+
    private static final String DATABASE_USERNAME  = "???";
    private static final String DATABASE_PASSWORD  = "???";
 
@@ -243,12 +245,19 @@ public class SQLServerBasics01
    {
       loadJARFileLibrary ("sqljdbc42.jar");
 
+      /*
       // Get a single value from the database:
       System.out.println ("\n\nCounting Patients in 'CPatient' table ...");
       String resultStr = getStringValueFromSQLDatabase ("SELECT COUNT(*) FROM CPatient");
       System.out.println ("-> Number of Patients: " + resultStr);
+      */
 
+      // Get a single value from the database:
+      System.out.println ("\n\nCounting queries in 'QyeryList' table ...");
+      String resultStr = getStringValueFromSQLDatabase ("SELECT COUNT(*) FROM QyeryList");
+      System.out.println ("-> Number of queries: " + resultStr);
 
+      /*
       // Get a 2D table of data from the database:
       System.out.println ("\n\nReading Patient data ...");
       Object[][] arr2D = getObjectArray2DFromSQLDatabase ("SELECT rtrim(CPatientID) AS [ID], rtrim(FirstName) + ' ' + rtrim(LastName) AS [PatientName], rtrim(Suburb) AS [Suburb] FROM CPatient");
@@ -265,6 +274,7 @@ public class SQLServerBasics01
             System.out.println ();
          }
       }
+      */
 
 
       //int[][] ints = { {1, 2, 3}, {4, 5}  }
