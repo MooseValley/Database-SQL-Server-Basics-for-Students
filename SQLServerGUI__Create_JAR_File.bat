@@ -8,7 +8,8 @@ REM
 REM echo %JAVA_HOME%
 REM echo %CLASS_PATH%
 
-SET "dirlocation=%JAVA_HOME%\bin\"
+
+REM SET "dirlocation=%JAVA_HOME%\bin\"
 
 echo "%dirlocation%"
 del /q *.class

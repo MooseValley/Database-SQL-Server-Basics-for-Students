@@ -1,5 +1,9 @@
 /*
-Command line app that does a simple query.
+ Author:      Mike O'Malley
+ Source File: SQLServerGUI.java
+ Description: Database connect and query functionality with a simple
+              main method to provide a basic command line app that
+              does some simple queries.
 
 Requires: Java 8 (v1.8) or prior (v1.7, v1.6, ....)
           Will NOT work with Java 9 (v1.9) or later.
@@ -7,6 +11,15 @@ Requires: Java 8 (v1.8) or prior (v1.7, v1.6, ....)
 
 REF:
 * "SQLServer - with Connect, Query, and basic GUI app - Mike O's notes for students.txt"
+
+Ammendment History
+Ver   Date        Author    Details
+----- ----------- --------  ----------------------------------------------------
+0.1   03-Jan-2019 Mike O    Created.
+0.3   15-Nov-2022 Mike O    Explore connection String for new (temporary) Laptop
+                            database server.
+
+
 
 */
 

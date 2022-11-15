@@ -1,7 +1,16 @@
 /*
+ Author:      Mike O'Malley
+ Source File: SQLServerGUI.java
+ Description: Basic GUI to demonstrate database connectivity.
 
 REF:
 * "SQLServer - with Connect, Query, and basic GUI app - Mike O's notes for students.txt"
+
+Ammendment History
+Ver   Date        Author    Details
+----- ----------- --------  ----------------------------------------------------
+0.1   03-Jan-2019 Mike O    Created.
+
 
 */
 
